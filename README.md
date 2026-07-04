@@ -1,0 +1,1 @@
+Questo repository raccoglie i miei progetti personali e gli esperimenti realizzati per approfondire concetti di informatica, programmazione e ingegneria del software. Ogni progetto è sviluppato con l'obiettivo di comprendere a fondo tecnologie, algoritmi e strumenti professionali.

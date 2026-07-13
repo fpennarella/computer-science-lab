@@ -8,5 +8,5 @@ import dev.fabio.negozio.models.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> { 
 	
-	
+	Cliente findByCodi(String cod);
 }

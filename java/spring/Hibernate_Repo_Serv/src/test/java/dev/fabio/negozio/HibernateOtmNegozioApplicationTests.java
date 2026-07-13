@@ -1,10 +1,10 @@
-package com.fabio.spring_library;
+package dev.fabio.negozio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringLibraryApplicationTests {
+class HibernateOtmNegozioApplicationTests {
 
 	@Test
 	void contextLoads() {

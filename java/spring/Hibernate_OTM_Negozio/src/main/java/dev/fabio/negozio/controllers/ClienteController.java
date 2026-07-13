@@ -1,8 +1,10 @@
 package dev.fabio.negozio.controllers;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Repository
+@RestController
+@RequestMapping("/api")
 public class ClienteController {
 
 }

@@ -1,13 +1,13 @@
-package com.fabio.spring_library;
+package dev.fabio.negozio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringLibraryApplication {
+public class HibernateOtmNegozioApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringLibraryApplication.class, args);
+		SpringApplication.run(HibernateOtmNegozioApplication.class, args);
 	}
 
 }

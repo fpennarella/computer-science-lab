@@ -1,6 +1,7 @@
 package dev.fabio.store.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,6 +19,13 @@ import jakarta.transaction.Transactional;
 public class FoodServiceImpl implements FoodService {
 	
 	private final FoodRepository foodRepository;
+	
+	private Food getFoodByUuid(String uuid) {
+		Food food = foodRepository.findByUuid(uuid)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Food non trovato"));
+				
+		return food;
+	}
 	
 	public FoodServiceImpl(FoodRepository fr) {
 		this.foodRepository = fr;
@@ -61,11 +69,12 @@ public class FoodServiceImpl implements FoodService {
 		
 	}
 	
-	private Food getFoodByUuid(String uuid) {
-		Food food = foodRepository.findByUuid(uuid)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Food non trovato"));
-				
-		return food;
+	@Override
+	public List<FoodDTO> findByCategory(String category) {
+		return foodRepository.findByCategory(category)
+				.stream()
+				.map(this::mapToDto)
+				.toList();
 	}
 	
 	// MAPPING

@@ -1,5 +1,6 @@
 package dev.fabio.store.repositories;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +14,7 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
 	void deleteByUuid(String uuid);
 	
 	boolean existsByUuid(String uuid);
+	
+	List<Food> findByCategory(String category);
 	
 }

@@ -16,4 +16,6 @@ public interface FoodService {
 	
 	void delete(String uuid);
 	
+	List<FoodDTO> findByCategory(String category);
+	
 }

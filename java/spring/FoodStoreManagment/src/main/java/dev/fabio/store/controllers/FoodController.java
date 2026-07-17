@@ -3,9 +3,11 @@ package dev.fabio.store.controllers;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +27,7 @@ public class FoodController {
 	}
 	
 	@GetMapping("/{uuid}")
-	public FoodDTO getByUuid(@PathVariable("uuid") String uuid) {
+	public FoodDTO getByUuid(@PathVariable(name="uuid") String uuid) {
 		return foodService.findByUuid(uuid);
 	}
 	
@@ -43,6 +45,20 @@ public class FoodController {
 	@PostMapping
 	public void create(@RequestBody FoodDTO dto) {
 		foodService.create(dto);
+	}
+	
+	@PutMapping("/{uuid}")
+	public ResponseEntity<FoodDTO> update(@PathVariable(name="uuid") String uuid, @RequestBody FoodDTO dto) {
+		foodService.update(uuid, dto);
+		
+		return ResponseEntity.noContent().build();
+	}
+	
+	@DeleteMapping("/{uuid}")
+	public ResponseEntity<Void> delete(@PathVariable(name="uuid") String uuid) {
+		foodService.delete(uuid);
+		
+		return ResponseEntity.noContent().build();
 	}
 	
 }

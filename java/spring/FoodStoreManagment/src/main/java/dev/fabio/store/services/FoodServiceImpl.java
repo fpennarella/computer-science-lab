@@ -1,7 +1,6 @@
 package dev.fabio.store.services;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -60,13 +59,16 @@ public class FoodServiceImpl implements FoodService {
 
 	@Override
 	public FoodDTO update(String uuid, FoodDTO dto) {
-		return mapToDto(this.getFoodByUuid(uuid));
+		Food food = getFoodByUuid(uuid);
+
+		mapToEntity(dto, food);
+
+		return mapToDto(food);
 	}
 
 	@Override
 	public void delete(String uuid) {
-		// TODO Auto-generated method stub
-		
+		foodRepository.delete(getFoodByUuid(uuid));
 	}
 	
 	@Override
